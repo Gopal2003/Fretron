@@ -1,10 +1,18 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-/**
+
+
+/*
  * Time Complexity: O(2^n) where n is the number of apples.
  * Space Complexity: O(n) where n is the number of apples.
  */
+
+/*
+ * Resources Used:
+ * https://stackoverflow.com/questions/12519335/resource-leak-in-is-never-closed
+ */
+
 public class Problem2 {
 
     // List to store the combination of the weight got in current recursion call.
@@ -13,7 +21,7 @@ public class Problem2 {
     // List to store the best combination of weights among all the weights.
     static List<Integer> bestTillNow = new ArrayList<>();
 
-    // Used in the case of Note : you cannot cut a apple into pieces have to allocate the whole apple to one of them. But currently, I have not considered this case.
+    // Used for the case of Note : you cannot cut a apple into pieces have to allocate the whole apple to one of them. But currently, I have not considered this case.
     // static List<Integer> IndexAlreadyTaken = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -43,12 +51,12 @@ public class Problem2 {
         int size = weights.size();
 
         int total = getSum(weights);
-        // System.out.println("Total " + total);
+        // System.out.println("Total " + total); //Debugging
 
         // double proportionateShare = (amountPaid * (double) totalWeight) / totalAmount;
         double proportionateShareRam = (50 * (double) total) / 100;
         int RamShare = (int)Math.round(proportionateShareRam);
-        // System.out.println("RamShare " + RamShare);
+        // System.out.println("RamShare " + RamShare); //Debugging
 
         //to handle Note : you cannot cut a apple into pieces have to allocate the whole apple to one of them.
         //check if the weight present in the given arraylist.
@@ -60,7 +68,7 @@ public class Problem2 {
         
         double proportionateShareSham = (30 * (double) total) / 100;
         int ShamShare = (int)Math.round(proportionateShareSham);
-        // System.out.println("ShamShare " + ShamShare);
+        // System.out.println("ShamShare " + ShamShare); //Debugging
 
 
 
@@ -69,7 +77,7 @@ public class Problem2 {
         // if(!shamExists || IndexAlreadyTaken.contains(weights.indexOf(ShamShare)))
         // {
         //     ShamShare = getTheNearestWeight(weights, ShamShare);
-        //     System.out.println("ShameShare : " + ShamShare);
+        //     System.out.println("ShameShare : " + ShamShare); //Debugging
         // }
         
         double proportionateShareRahim = (20 * (double) total) / 100;
@@ -79,7 +87,7 @@ public class Problem2 {
         //to handle Note : you cannot cut a apple into pieces have to allocate the whole apple to one of them.
         //check if the weight present in the given arraylist.
         // boolean RahimExists = weights.contains(RahimShare);
-        // System.out.println("RahimShare " + RahimShare);
+        // System.out.println("RahimShare " + RahimShare); //Debugging
         // if(!RahimExists || IndexAlreadyTaken.contains(weights.indexOf(RahimShare)))
         // {
         //     RahimShare = getTheNearestWeight(weights, RahimShare);
@@ -170,7 +178,7 @@ public class Problem2 {
             bestTillNow.add(weight);
         }
 
-        // System.out.println("Storing Done");
+        // System.out.println("Storing Done"); //Debugging
     }
 
     //Function to calculate the sum of all weights.
@@ -179,7 +187,7 @@ public class Problem2 {
         for(int weight : weights){
             sum += weight;
         }
-        // System.out.println("Sum Done");
+        // System.out.println("Sum Done"); //Debugging
         return sum;
     }
 
@@ -188,10 +196,10 @@ public class Problem2 {
 
         for(int i = 0; i < weights.size(); i++)
         {
-            // System.out.println("bestTillNow: " + bestTillNow.toString());
+            // System.out.println("bestTillNow: " + bestTillNow.toString()); //Debugging
             if(bestTillNow.contains(weights.get(i))){
                 int idx = bestTillNow.indexOf(weights.get(i));
-                // System.out.println("idx " + idx);
+                // System.out.println("idx " + idx); //Debugging
                 bestTillNow.remove(idx);
 
                 weights.remove(i);
@@ -201,8 +209,8 @@ public class Problem2 {
         }
 
 
-        // System.out.println("Remove Done");
-        // System.out.println("Weights: " + weights.toString());
+        // System.out.println("Remove Done"); //Debugging
+        // System.out.println("Weights: " + weights.toString());//Debugging
     }
 
     //Function to print the result.
@@ -222,8 +230,8 @@ public class Problem2 {
     //     int idx = weights.indexOf(closestWeight);
     //     IndexAlreadyTaken.add(idx);
 
-    //     // System.out.println("indexArray: " + IndexAlreadyTaken.toString()  );
-    //     // System.out.println("closestWeight: " + closestWeight  );
+    //     // System.out.println("indexArray: " + IndexAlreadyTaken.toString()  ); //Debugging
+    //     // System.out.println("closestWeight: " + closestWeight  ); //Debugging
     //     return closestWeight;
     // }
 }
