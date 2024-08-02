@@ -13,7 +13,7 @@ import java.util.Scanner;
  * https://stackoverflow.com/questions/12519335/resource-leak-in-is-never-closed
  */
 
-public class DistributeApples {
+public class DistributeApple {
 
     // List to store the combination of the weight got in current recursion call.
     static List<Integer> currentWeights = new ArrayList<>();
