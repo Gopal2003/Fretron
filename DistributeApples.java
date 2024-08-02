@@ -13,7 +13,7 @@ import java.util.Scanner;
  * https://stackoverflow.com/questions/12519335/resource-leak-in-is-never-closed
  */
 
-public class Problem2 {
+public class DistributeApples {
 
     // List to store the combination of the weight got in current recursion call.
     static List<Integer> currentWeights = new ArrayList<>();
@@ -94,6 +94,7 @@ public class Problem2 {
         // }
         // System.out.println(RamShare + " : " + ShamShare + " : " + RahimShare);// Debugging - Printing the ram, sham, and rahim share.
 
+        System.out.println("Distribution Result : ");
 
         findCombinations(weights, RamShare, size);
         printResult(bestTillNow,"Ram");
