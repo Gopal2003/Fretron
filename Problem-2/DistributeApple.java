@@ -21,7 +21,7 @@ public class DistributeApple {
     // List to store the best combination of weights among all the weights.
     static List<Integer> bestTillNow = new ArrayList<>();
 
-    // Used for the case of Note : you cannot cut a apple into pieces have to allocate the whole apple to one of them. But currently, I have not considered this case.
+    // Used for the case where we cannot cut a apple into pieces have to allocate the whole apple to one of them. But currently, I have not considered this case.
     // static List<Integer> IndexAlreadyTaken = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -58,7 +58,7 @@ public class DistributeApple {
         int RamShare = (int)Math.round(proportionateShareRam);
         // System.out.println("RamShare " + RamShare); //Debugging
 
-        //to handle Note : you cannot cut a apple into pieces have to allocate the whole apple to one of them.
+        // Used for the case where we cannot cut a apple into pieces have to allocate the whole apple to one of them
         //check if the weight present in the given arraylist.
         // boolean ramExists = weights.contains(RamShare);
         // if(!ramExists || IndexAlreadyTaken.contains(weights.indexOf(RamShare)))
@@ -71,9 +71,9 @@ public class DistributeApple {
         // System.out.println("ShamShare " + ShamShare); //Debugging
 
 
-
+        // Used for the case where we cannot cut a apple into pieces have to allocate the whole apple to one of them
         //check if the weight present in the given arraylist.
-        // boolean shamExists = weights.contains(ShamShare); // to handle the Note : you cannot cut a apple into pieces have to allocate the whole apple to one of them.
+        // boolean shamExists = weights.contains(ShamShare); 
         // if(!shamExists || IndexAlreadyTaken.contains(weights.indexOf(ShamShare)))
         // {
         //     ShamShare = getTheNearestWeight(weights, ShamShare);
@@ -84,7 +84,7 @@ public class DistributeApple {
         int RahimShare = (int)Math.round(proportionateShareRahim);
 
 
-        //to handle Note : you cannot cut a apple into pieces have to allocate the whole apple to one of them.
+        //Used for the case where we cannot cut a apple into pieces have to allocate the whole apple to one of them
         //check if the weight present in the given arraylist.
         // boolean RahimExists = weights.contains(RahimShare);
         // System.out.println("RahimShare " + RahimShare); //Debugging
@@ -100,7 +100,7 @@ public class DistributeApple {
         printResult(bestTillNow,"Ram");
         findAndRemove(weights,bestTillNow);
 
-        //For fresh recursion, clear all the variables to stored in bestTillNow and currentWeights list.
+        //For new recursion, clear all the variables to stored in bestTillNow and currentWeights list.
         // bestTillNow.clear();
         currentWeights.clear();
         
@@ -166,9 +166,6 @@ public class DistributeApple {
         }
     }
 
-
-    
-
     // Function to store the current combination of weights in bestTillNow list.
     public static void storeWeight() {
         // Remove previously stored combination in case any new combination is better with respect to the size.
@@ -219,7 +216,7 @@ public class DistributeApple {
         System.out.println(name + ": " + bestTillNow.toString());
     }
 
-    // Function to find the nearest weight from the given list. This function is implemeted for the case Note : you cannot cut a apple into pieces have to allocate the whole apple to one of them. But not currently in use because of some test cases and errors.
+    // Function to find the nearest weight from the given list. This function is implemeted for the case where we cannot cut a apple into pieces have to allocate the whole apple to one of them
     // public static int getTheNearestWeight(List<Integer> weights, int targetWeight){
     //     int closestWeight = 0;
     //     for (int weight : weights) {
